@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}figure{
+    width: 100%;
+    
+}
+img{
+ 
+    width: 500px;
+    height: 450px;
+}
+.images{
+    width: 100px;
+    height: 100px;
+}
+.parent{
+    position: relative;
+    margin: 20px;
+}
+.datalist{
+    background-color: whitesmoke;
+    position: absolute;
+
+    top: 0px;
+width: 500px;
+height: 450px;
+z-index: 999;
+}
+#root{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.more{
+    background-color: burlywood;
+    padding: 6px 10px;
+    outline: none;
+    border: 1px solid gray;
+
+}
