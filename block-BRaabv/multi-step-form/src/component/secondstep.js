@@ -70,9 +70,9 @@ class Secondstep extends React.Component {
                             </form>
                         </div>
                 }
-                {
+                {/* {
                     this.state.isback ? <Firststep /> : ""
-                }
+                } */}
             </>
         )
     }
