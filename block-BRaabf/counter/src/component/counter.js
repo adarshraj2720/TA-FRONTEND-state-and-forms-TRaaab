@@ -7,6 +7,7 @@ class Counter extends React.Component{
         super(props);
         this.state={
             counter:1,
+            step:5,
         }
 
 
@@ -22,12 +23,12 @@ class Counter extends React.Component{
   
     handleincrement=()=>{
         this.setState({
-            counter:this.state.counter+1 ,
+            counter:this.state.counter+this.state.step,
         })
     }
     handledecrement=()=>{
         this.setState({
-            counter:this.state.counter -1,
+            counter:this.state.counter -this.state.step,
         })
     }
     handlereset=()=>{
