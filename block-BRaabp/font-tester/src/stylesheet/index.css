@@ -1,0 +1,50 @@
+.one, .two , .three{
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    color: black;
+}
+.two{
+    font-family: 'Blaka', cursive;
+}
+.three{
+    font-family: 'Playfair Display', serif;
+}
+.fontstyle{
+    width: 28%;
+    height: 300px;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 4px;
+}
+.box{
+ display: flex;
+ justify-content: space-around;
+}
+.design{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+input{
+ 
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: 20px;
+    border:1px solid gray;
+    padding-left: 40px;
+
+
+}
+form{
+   width:20%;
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+}
+p ,span{
+    color: gray;
+}
