@@ -1,11 +1,12 @@
 import React from "react";
-
+import data from '../data.json'
 
 class Cart extends React.Component {
     constructor(props) {
         super()
         this.state = ({
             istrue: true,
+            incdec:false
 
         })
     }
@@ -24,6 +25,27 @@ class Cart extends React.Component {
         })
     }
 
+    handleInc = (event) => {
+        let id = event.target.id;
+        let singleProduct = data.products.filter((p) => p.id == id);
+        singleProduct[0].Qty = singleProduct[0].Qty + 1;
+        this.setState({
+          incdec: true,
+        });
+      };
+      handleDec = (event) => { 
+        let id = event.target.id;
+        let singleProduct = data.products.filter((p) => p.id == id);
+        if(singleProduct[0].Qty>1){
+        singleProduct[0].Qty = singleProduct[0].Qty - 1;
+        }
+
+        console.log(singleProduct[0].Qty);
+        this.setState({
+          incdec: true,
+        });
+      };
+    
 
     render() {
         return (
@@ -32,7 +54,7 @@ class Cart extends React.Component {
                     <figure>
                         <img className="bagicon" onClick={this.handletrue} src={'/static/bag-icon.png'} ></img>
                     </figure>
-                    <small className="cartlength">{this.props.info.length}</small>
+                    <small className="cartlength">{[... new Set(this.props.info)].length}</small>
                 </div>
 
                 {
@@ -45,12 +67,18 @@ class Cart extends React.Component {
                             </div>
 
                             {
-                                this.props.info.map((a) => {
+                                [... new  Set(this.props.info)].map((a) => {
                                     return (
                                         <div className="cartlist">
                                         <img className="cartproductimg" src={'/static/products/' + `${a.sku}` + '_1.jpg'}></img>
                                             <p>{a.title}</p>
-                                            <p>Quantity:1</p>
+                                            {/* <p>Quantity:1</p> */}
+                                            {
+                                                this.state.incdec===true?
+                                                <p>Quantity:{a.Qty}</p>:<p>Quantity:{a.Qty}</p>
+                                            }
+                                            <button id={a.id} onClick={this.handleInc}>+</button>
+                                            <button id={a.id} onClick={this.handleDec}>-</button>
                                             <p>Price:{a.currencyFormat}{a.price}</p>
                                         
                                         </div>
@@ -58,8 +86,8 @@ class Cart extends React.Component {
                                 })
                             }
                             <div className="shoppingsummary">
-                                <p className="summary">SubTotal:{this.props.info.reduce((acc, cv) => {
-                                    acc = acc + cv.price
+                                <p className="summary">SubTotal: { [... new  Set(this.props.info)].reduce((acc, cv) => {
+                                    acc = acc + cv.price *cv.Qty
                                     return acc;
                                 }, 0)}</p>
                             </div>

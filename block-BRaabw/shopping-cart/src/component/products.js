@@ -24,11 +24,12 @@ class Products extends React.Component {
 
     handlecart = (event) => {
         let id = event.target.id;
-        let ab = data.products.filter((a) => a.id == id)
+        let prodctlist = data.products.filter((a) => a.id == id)
+        prodctlist[0].Qty=1
         this.setState({
-            list: this.state.list.concat(ab)
+            list: this.state.list.concat(prodctlist)
         })
-        console.log(this.state.list)
+        // console.log(this.state.list)
     }
 
 
